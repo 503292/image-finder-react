@@ -1,37 +1,37 @@
 import React from 'react';
 
-const PhotoCard = () => (
+const PhotoCard = ({ imagesInfo }) => (
   <>
-    <div>PhotoCard</div>
-    <div className="photo-card">
-      <img
-        src="https://www.zenit.photo/upload/iblock/260/foto_aleksey_lukyanenko_zenitar_16.jpg"
-        alt=""
-      />
+    {imagesInfo.map(
+      ({ id, webformatURL, likes, views, comments, downloads }) => (
+        <div key={id} className="photo-card">
+          <img src={webformatURL} alt="img-photo" />
+          {/* largeImageURL */}
+          <div className="stats">
+            <p className="stats-item">
+              <i className="material-icons">thumb_up</i>
+              {likes}
+            </p>
+            <p className="stats-item">
+              <i className="material-icons">visibility</i>
+              {views}
+            </p>
+            <p className="stats-item">
+              <i className="material-icons">comment</i>
+              {comments}
+            </p>
+            <p className="stats-item">
+              <i className="material-icons">cloud_download</i>
+              {downloads}
+            </p>
+          </div>
 
-      <div className="stats">
-        <p className="stats-item">
-          <i className="material-icons">thumb_up</i>
-          1108
-        </p>
-        <p className="stats-item">
-          <i className="material-icons">visibility</i>
-          320321
-        </p>
-        <p className="stats-item">
-          <i className="material-icons">comment</i>
-          129
-        </p>
-        <p className="stats-item">
-          <i className="material-icons">cloud_download</i>
-          176019
-        </p>
-      </div>
-
-      <button type="button" className="fullscreen-button">
-        <i className="material-icons">zoom_out_map</i>
-      </button>
-    </div>
+          <button type="button" className="fullscreen-button">
+            <i className="material-icons">zoom_out_map</i>
+          </button>
+        </div>
+      ),
+    )}
   </>
 );
 
