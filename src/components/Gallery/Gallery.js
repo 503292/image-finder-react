@@ -14,89 +14,37 @@ class Gallery extends Component {
     query: '',
   };
 
-  componentDidMount() {
-    this.fetchArticles();
-  }
-
-  // componentDidUpdate(prevProps, prevState) {}
-
-  fetchArticles = (query, page) => {
-    this.setState({ isLoading: true });
-
+  handleSubmitGalery = ({ query, page }) => {
     photoAPI
       .fetchPhoto(query, page)
       .then(({ data }) =>
-        // this.setState(prevState => ({
-        //     imagesInfo: [...prevState.imagesInfo, data.hits],
-        //   }))
-
-        this.setState({ imagesInfo: data.hits }),
-      )
-
-      .catch(error => this.setState({ error }))
-      .finally(() => this.setState({ isLoading: false }));
-  };
-
-  // this.setState(prevState => ({
-  //   imagesInfo: [...prevState.imagesInfo, data.hits],
-  // }))
-
-  handelChange = e => {
-    this.setState({
-      query: e.target.value,
-    });
-  };
-
-  handleSubmitGalery = ({ query }) => {
-    photoAPI
-      .fetchPhoto(query)
-      .then(({ data }) =>
         this.setState({
-          query,
           imagesInfo: data.hits,
+          query,
           page: 2,
         }),
       )
       .catch(error => error);
-
-    // e.preventDefault();
-    // const { imagesInfo, query, page } = this.state;
-    // console.log(page);
-    // this.setState({ imagesInfo: [], page: 2 });
-    // this.fetchArticles(query, page + 1);
-    // this.setState({ page: page + 1 });
-    // console.log(imagesInfo);
-    // console.log(page);
-    // this.resetQuery();
   };
 
-  handleClickBtn = e => {
-    const { imagesInfo, query, page } = this.state;
-    console.log(page);
-    // this.setState({ page: page + 1 });
+  handleClickBtn = () => {
+    const { query, page } = this.state;
+    // console.log(page);
 
-    e.preventDefault();
-    console.log(page);
-    if (query === '') {
-      this.fetchArticles(page + 1);
-
-      this.setState(prevState => ({
-        imagesInfo: [...prevState.imagesInfo, ...imagesInfo],
-      }));
-    } else {
-      this.fetchArticles(query, page + 1);
-    }
-    this.setState({ page: page + 1 });
-
-    console.log(page);
-
-    // this.resetQuery();
+    photoAPI
+      .fetchPhoto(query, page)
+      .then(({ data }) =>
+        this.setState(prevState => ({
+          imagesInfo: [...prevState.imagesInfo, ...data.hits],
+          page: page + 1,
+        })),
+      )
+      .catch(error => error);
   };
-
-  resetQuery = () => this.setState({ query: '' });
 
   render() {
     const { error, isLoading, imagesInfo } = this.state;
+
     return (
       <>
         <SearchForm handleSubmitGalery={this.handleSubmitGalery} />

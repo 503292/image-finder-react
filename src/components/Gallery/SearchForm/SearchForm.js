@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 export default class SearchForm extends Component {
-  state = { query: '' };
+  state = { query: '', page: 1 };
 
   handelChange = e => {
     this.setState({
@@ -15,7 +15,7 @@ export default class SearchForm extends Component {
 
     const { handleSubmitGalery } = this.props;
 
-    handleSubmitGalery(this.state.query);
+    handleSubmitGalery(this.state);
 
     this.setState({
       query: '',
