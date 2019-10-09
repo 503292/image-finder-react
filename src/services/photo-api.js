@@ -5,7 +5,7 @@ const BASE_URL =
 const API_KEY = '&key=13631456-c9d9ce7db3701f221793ce82d';
 
 /* eslint-disable-next-line */
-export const fetchArticles = (query = 'react', page) =>
-  axios.get(BASE_URL + query + `&page=${page}&per_page=12` + API_KEY);
+export const fetchPhoto = (query = 'dog', page = 1) =>
+  axios.get(`${BASE_URL + query}&page=${page}&per_page=12${API_KEY}`);
 
 // 13631456-c9d9ce7db3701f221793ce82d
