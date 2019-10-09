@@ -24,7 +24,7 @@ class Gallery extends Component {
       .finally(() => this.setState({ isLoading: false }));
   }
 
-  componentDidUpdate(prevProps, prevState) {}
+  // componentDidUpdate(prevProps, prevState) {}
 
   handelChange = e => {
     console.log(e.target.value);
