@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const PhotoCard = ({ imagesInfo }) => (
+const PhotoCard = ({ imagesInfo, handleClickBtn }) => (
   <>
     <ul className="gallery">
       {imagesInfo.map(
         ({ id, webformatURL, likes, views, comments, downloads }) => (
-          <div key={id} className="photo-card">
+          <li key={id} className="photo-card">
             <img src={webformatURL} alt="somesing" />
             {/* largeImageURL */}
             <div className="stats">
@@ -31,10 +31,15 @@ const PhotoCard = ({ imagesInfo }) => (
             <button type="button" className="fullscreen-button">
               <i className="material-icons">zoom_out_map</i>
             </button>
-          </div>
+          </li>
         ),
       )}
     </ul>
+    <div className="wrapBtn">
+      <button type="button" onClick={handleClickBtn} className="buttonLoad">
+        Load more
+      </button>
+    </div>
   </>
 );
 
@@ -49,6 +54,7 @@ PhotoCard.propTypes = {
       downloads: PropTypes.number.isRequired,
     }),
   ).isRequired,
+  handleClickBtn: PropTypes.func.isRequired,
 };
 
 export default PhotoCard;

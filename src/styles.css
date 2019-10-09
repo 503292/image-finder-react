@@ -127,7 +127,11 @@ img {
 }
 
 /* Стили кнопки Load more */
-.button {
+.wrapBtn {
+  text-align: center;
+}
+
+.buttonLoad {
   padding: 8px 16px;
   border-radius: 3px;
   background-color: #3884ff;
@@ -147,7 +151,7 @@ img {
   margin-right: auto;
 }
 
-.button:hover,
-.button:focus {
+.buttonLoad:hover,
+.buttonLoad:focus {
   background-color: #1f65d6;
 }

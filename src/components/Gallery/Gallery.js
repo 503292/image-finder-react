@@ -9,77 +9,106 @@ class Gallery extends Component {
   state = {
     imagesInfo: [],
     isLoading: false,
-    page: null,
     error: null,
+    page: 1,
     query: '',
   };
 
   componentDidMount() {
-    // const { query, page } = this.state;
-
-    // // console.log(query);
-    // // console.log(page);
-
     this.fetchArticles();
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   const { query } = this.state;
-
-  //   // if (prevCategory !== nextCategory) {
-  //   //   this.fetchArticles(nextCategory);
-  //   // }
-
-  //   if (prevState.query !== query) {
-  //     this.fetchArticles(query);
-  //   }
-  // }
+  // componentDidUpdate(prevProps, prevState) {}
 
   fetchArticles = (query, page) => {
     this.setState({ isLoading: true });
 
     photoAPI
       .fetchPhoto(query, page)
-      .then(({ data }) => this.setState({ imagesInfo: data.hits }))
+      .then(({ data }) =>
+        // this.setState(prevState => ({
+        //     imagesInfo: [...prevState.imagesInfo, data.hits],
+        //   }))
+
+        this.setState({ imagesInfo: data.hits }),
+      )
+
       .catch(error => this.setState({ error }))
       .finally(() => this.setState({ isLoading: false }));
   };
 
-  handelChange = e => {
-    console.log(e.target.value);
+  // this.setState(prevState => ({
+  //   imagesInfo: [...prevState.imagesInfo, data.hits],
+  // }))
 
+  handelChange = e => {
     this.setState({
       query: e.target.value,
     });
   };
 
-  handleSubmit = e => {
-    const { query } = this.state;
+  handleSubmitGalery = ({ query }) => {
+    photoAPI
+      .fetchPhoto(query)
+      .then(({ data }) =>
+        this.setState({
+          query,
+          imagesInfo: data.hits,
+          page: 2,
+        }),
+      )
+      .catch(error => error);
 
-    e.preventDefault();
-
-    this.fetchArticles(query);
-
-    this.reset();
+    // e.preventDefault();
+    // const { imagesInfo, query, page } = this.state;
+    // console.log(page);
+    // this.setState({ imagesInfo: [], page: 2 });
+    // this.fetchArticles(query, page + 1);
+    // this.setState({ page: page + 1 });
+    // console.log(imagesInfo);
+    // console.log(page);
+    // this.resetQuery();
   };
 
-  reset = () => this.setState({ query: '' });
+  handleClickBtn = e => {
+    const { imagesInfo, query, page } = this.state;
+    console.log(page);
+    // this.setState({ page: page + 1 });
+
+    e.preventDefault();
+    console.log(page);
+    if (query === '') {
+      this.fetchArticles(page + 1);
+
+      this.setState(prevState => ({
+        imagesInfo: [...prevState.imagesInfo, ...imagesInfo],
+      }));
+    } else {
+      this.fetchArticles(query, page + 1);
+    }
+    this.setState({ page: page + 1 });
+
+    console.log(page);
+
+    // this.resetQuery();
+  };
+
+  resetQuery = () => this.setState({ query: '' });
 
   render() {
-    const { query, error, isLoading, imagesInfo } = this.state;
+    const { error, isLoading, imagesInfo } = this.state;
     return (
       <>
-        <hr />
-        <SearchForm
-          handelChange={this.handelChange}
-          handleSubmit={this.handleSubmit}
-          query={query}
-        />
-        <hr />
+        <SearchForm handleSubmitGalery={this.handleSubmitGalery} />
 
         {error && <ErrorNotification text={error.message} />}
         {isLoading && <Loader />}
-        {imagesInfo.length > 0 && <PhotoCard imagesInfo={imagesInfo} />}
+        {imagesInfo.length > 0 && (
+          <PhotoCard
+            handleClickBtn={this.handleClickBtn}
+            imagesInfo={imagesInfo}
+          />
+        )}
       </>
     );
   }
