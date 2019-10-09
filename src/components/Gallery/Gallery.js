@@ -9,22 +9,41 @@ class Gallery extends Component {
   state = {
     imagesInfo: [],
     isLoading: false,
-    // page: 1,
+    page: null,
     error: null,
     query: '',
   };
 
   componentDidMount() {
+    // const { query, page } = this.state;
+
+    // // console.log(query);
+    // // console.log(page);
+
+    this.fetchArticles();
+  }
+
+  // componentDidUpdate(prevProps, prevState) {
+  //   const { query } = this.state;
+
+  //   // if (prevCategory !== nextCategory) {
+  //   //   this.fetchArticles(nextCategory);
+  //   // }
+
+  //   if (prevState.query !== query) {
+  //     this.fetchArticles(query);
+  //   }
+  // }
+
+  fetchArticles = (query, page) => {
     this.setState({ isLoading: true });
 
     photoAPI
-      .fetchPhoto()
+      .fetchPhoto(query, page)
       .then(({ data }) => this.setState({ imagesInfo: data.hits }))
       .catch(error => this.setState({ error }))
       .finally(() => this.setState({ isLoading: false }));
-  }
-
-  // componentDidUpdate(prevProps, prevState) {}
+  };
 
   handelChange = e => {
     console.log(e.target.value);
@@ -35,9 +54,16 @@ class Gallery extends Component {
   };
 
   handleSubmit = e => {
+    const { query } = this.state;
+
     e.preventDefault();
-    console.log(this.state.query);
+
+    this.fetchArticles(query);
+
+    this.reset();
   };
+
+  reset = () => this.setState({ query: '' });
 
   render() {
     const { query, error, isLoading, imagesInfo } = this.state;
