@@ -20,6 +20,13 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+.topImage {
+  margin: 0 auto;
+  padding: 20px 0;
 }
 
 /* Стили компонента App */
@@ -57,6 +64,7 @@ img {
   grid-gap: 16px;
   margin-left: auto;
   margin-right: auto;
+  padding: 0;
 }
 
 /* Стили компонента GalleryItem */
@@ -68,8 +76,14 @@ img {
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
 }
 
-.photo-card img {
+.card-photo {
   height: 260px;
+  width: 100%;
+  object-fit: cover;
+}
+.modal-photo {
+  /* min-height: 260px; */
+  width: 100%;
   object-fit: cover;
 }
 
@@ -120,6 +134,9 @@ img {
 .fullscreen-button i {
   font-size: 36px;
 }
+.gallery-item {
+  list-style: none;
+}
 
 .gallery-item:hover .fullscreen-button,
 .gallery-item:focus .fullscreen-button {
@@ -154,4 +171,26 @@ img {
 .buttonLoad:hover,
 .buttonLoad:focus {
   background-color: #1f65d6;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(19, 14, 14, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  max-width: 620px;
+  width: 100%;
+  min-height: 320px;
+  box-shadow: 0px 4px 21px -4px rgba(0, 0, 0, 0.75);
 }

@@ -4,6 +4,7 @@ import Loader from '../Loader';
 import SearchForm from '../SearchForm/SearchForm';
 import ErrorNotification from '../ErrorNotification';
 import * as photoAPI from '../../services/photo-api';
+import pathImg from '../../image/Moogle.jpg';
 
 class Gallery extends Component {
   state = {
@@ -12,6 +13,7 @@ class Gallery extends Component {
     error: null,
     page: 1,
     query: '',
+    // isModalOpen: false,
   };
 
   handleSubmitGalery = ({ query, page }) => {
@@ -45,6 +47,7 @@ class Gallery extends Component {
 
     return (
       <>
+        <img src={pathImg} alt="moogle" className="topImage" />
         <SearchForm handleSubmitGalery={this.handleSubmitGalery} />
 
         {error && <ErrorNotification text={error.message} />}

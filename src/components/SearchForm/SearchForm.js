@@ -43,25 +43,3 @@ export default class SearchForm extends Component {
 SearchForm.propTypes = {
   handleSubmitGalery: PropTypes.func.isRequired,
 };
-
-// const SearchForm = ({ query, handelChange, handleSubmit }) => (
-//   <>
-//     <form className="search-form" onSubmit={handleSubmit}>
-//       <input
-//         type="text"
-//         value={query}
-//         autoComplete="off"
-//         onChange={handelChange}
-//         placeholder="Search images..."
-//       />
-//     </form>
-//   </>
-// );
-
-// SearchForm.propTypes = {
-//   query: PropTypes.string.isRequired,
-//   handelChange: PropTypes.func.isRequired,
-//   handleSubmit: PropTypes.func.isRequired,
-// };
-
-// export default SearchForm;
