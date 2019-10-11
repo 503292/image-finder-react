@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+// import shortid from 'shortid';
 import Modal from '../Modal/Modal';
 
 export default class PhotoCard extends Component {
   state = {
     isModalOpen: false,
+    largeImage: '',
   };
 
-  handleOpenModal = () => this.setState({ isModalOpen: true });
+  handleOpenModal = e => {
+    this.setState({ largeImage: e.currentTarget.value });
+    this.setState({ isModalOpen: true });
+  };
 
   handleCloseModal = () => this.setState({ isModalOpen: false });
 
   render() {
     const { imagesInfo, handleClickBtn } = this.props;
-    const { isModalOpen } = this.state;
+    const { largeImage, isModalOpen } = this.state;
     return (
       <>
         <ul className="gallery">
@@ -32,6 +37,7 @@ export default class PhotoCard extends Component {
                   <img
                     className="card-photo"
                     src={webformatURL}
+                    data-src={largeImageURL}
                     alt="somesing"
                   />
                   <div className="stats">
@@ -60,25 +66,19 @@ export default class PhotoCard extends Component {
                   >
                     <i className="material-icons">zoom_out_map</i>
                   </button>
-
-                  {isModalOpen && (
-                    <Modal
-                      className="modal-photo-card"
-                      handleCloseModal={this.handleCloseModal}
-                      // largeImageURL={largeImageURL}
-                    >
-                      {/* <img
-                        className="modal-photo"
-                        src={largeImageURL}
-                        alt={id}
-                      /> */}
-                    </Modal>
-                  )}
                 </div>
               </li>
             ),
           )}
+          {isModalOpen && (
+            <Modal
+              className="modal-photo-card"
+              handleCloseModal={this.handleCloseModal}
+              largeImageURL={largeImage}
+            />
+          )}
         </ul>
+
         <div className="wrapBtn">
           <button type="button" onClick={handleClickBtn} className="buttonLoad">
             Load more

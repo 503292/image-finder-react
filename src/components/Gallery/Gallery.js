@@ -16,6 +16,17 @@ class Gallery extends Component {
     // isModalOpen: false,
   };
 
+  componentDidUpdate(prevState) {
+    const { query } = this.state;
+
+    if (prevState.query !== query) {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth',
+      });
+    }
+  }
+
   handleSubmitGalery = ({ query, page }) => {
     photoAPI
       .fetchPhoto(query, page)
@@ -44,7 +55,6 @@ class Gallery extends Component {
 
   render() {
     const { error, isLoading, imagesInfo } = this.state;
-
     return (
       <>
         <img src={pathImg} alt="moogle" className="topImage" />

@@ -4,10 +4,6 @@ import PropTypes from 'prop-types';
 class Modal extends Component {
   overlayRef = createRef();
 
-  state = {
-    largeImageURL: '',
-  };
-
   componentWillMount() {
     window.removeEventListener('keyup', this.handleListenerClickButton);
   }
@@ -32,13 +28,10 @@ class Modal extends Component {
     this.props.handleCloseModal();
   };
 
-  handelPhoto = e => {
-    this.setState({ largeImageURL: e.target.value });
-  };
-
   render() {
-    const { largeImageURL } = this.state;
-    console.log(largeImageURL);
+    // const { largeImageURL } = this.state;
+    const { largeImageURL } = this.props;
+
     return (
       <>
         <div
@@ -62,11 +55,7 @@ class Modal extends Component {
 }
 
 Modal.propTypes = {
-  // largeImageURL: PropTypes.string.isRequired,
-  // children: PropTypes.oneOfType([
-  //   PropTypes.arrayOf(PropTypes.node),
-  //   PropTypes.node,
-  // ]).isRequired,
+  largeImageURL: PropTypes.string.isRequired,
   handleCloseModal: PropTypes.func.isRequired,
 };
 
