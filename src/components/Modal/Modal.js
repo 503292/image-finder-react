@@ -5,21 +5,21 @@ class Modal extends Component {
   overlayRef = createRef();
 
   componentWillMount() {
-    window.removeEventListener('keyup', this.handleListenerClickButton);
+    window.removeEventListener('keyup', this.handleBtnModal);
   }
 
   componentDidMount() {
-    window.addEventListener('keyup', this.handleListenerClickButton);
+    window.addEventListener('keyup', this.handleBtnModal);
   }
 
-  handleListenerClickButton = e => {
+  handleBtnModal = e => {
     if (e.code !== 'Escape') {
       return;
     }
     this.props.handleCloseModal();
   };
 
-  handleClickOverlay = ({ target }) => {
+  handleModalOverlay = ({ target }) => {
     const { current } = this.overlayRef;
 
     if (target !== current) {
@@ -29,14 +29,13 @@ class Modal extends Component {
   };
 
   render() {
-    // const { largeImageURL } = this.state;
     const { largeImageURL } = this.props;
 
     return (
       <>
         <div
-          onKeyUp={this.handleListenerClickButton}
-          onClick={this.handleClickOverlay}
+          onKeyUp={this.handleBtnModal}
+          onClick={this.handleModalOverlay}
           className="overlay"
           role="presentation"
           ref={this.overlayRef}

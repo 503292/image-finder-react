@@ -1,45 +1,45 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class SearchForm extends Component {
+class SearchForm extends Component {
   state = { query: '', page: 1 };
 
   handelChange = e => {
-    this.setState({
-      query: e.target.value,
-    });
+    this.setState({ query: e.target.value });
   };
 
-  handleSubmitForm = e => {
+  handleSubmit = e => {
     e.preventDefault();
 
-    const { handleSubmitGalery } = this.props;
+    const { handleSubmitForm } = this.props;
 
-    handleSubmitGalery(this.state);
+    handleSubmitForm(this.state);
 
-    this.setState({
-      query: '',
-    });
+    this.resetSearch();
+  };
+
+  resetSearch = () => {
+    this.setState({ query: '' });
   };
 
   render() {
     const { query } = this.state;
     return (
-      <>
-        <form className="search-form" onSubmit={this.handleSubmitForm}>
-          <input
-            type="text"
-            value={query}
-            autoComplete="off"
-            onChange={this.handelChange}
-            placeholder="Search images..."
-          />
-        </form>
-      </>
+      <form className="search-form" onSubmit={this.handleSubmit}>
+        <input
+          onChange={this.handelChange}
+          value={query}
+          type="text"
+          autoComplete="off"
+          placeholder="Search images..."
+        />
+      </form>
     );
   }
 }
 
+export default SearchForm;
+
 SearchForm.propTypes = {
-  handleSubmitGalery: PropTypes.func.isRequired,
+  handleSubmitForm: PropTypes.func.isRequired,
 };
