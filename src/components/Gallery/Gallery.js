@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import PhotoCard from '../PhotoCard/PhotoCard';
 import Button from '../Button/Button';
+import css from './Gallery.module.css';
 
 const Gallery = ({ imagesInfo, handleClickBtn, handleOpenModal }) => (
   <>
     {' '}
-    <ul className="gallery">
+    <ul className={css.gallery}>
       {imagesInfo.map((el, index) => (
         <PhotoCard
           // eslint-disable-next-line react/no-array-index-key

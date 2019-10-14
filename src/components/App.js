@@ -4,6 +4,7 @@ import SearchForm from './SearchForm/SearchForm';
 import Modal from './Modal/Modal';
 import { getPhotos } from '../services/photo-api';
 import pathImg from '../image/Moogle.jpg';
+import css from './App.module.css';
 
 class App extends Component {
   state = {
@@ -72,8 +73,8 @@ class App extends Component {
   render() {
     const { isModalOpen, imagesInfo, query, largeImage } = this.state;
     return (
-      <>
-        <img src={pathImg} alt="top-moogle" className="topImage" />
+      <div className={css.app}>
+        <img src={pathImg} alt="top-moogle" className={css.topImage} />
 
         <SearchForm handleSubmitForm={this.handleSubmitForm} query={query} />
 
@@ -90,7 +91,7 @@ class App extends Component {
             largeImageURL={largeImage}
           />
         )}
-      </>
+      </div>
     );
   }
 }

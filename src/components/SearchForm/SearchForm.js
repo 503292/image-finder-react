@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import css from './SearchForm.module.css';
 
 class SearchForm extends Component {
   state = { query: '', page: 1 };
@@ -25,7 +26,7 @@ class SearchForm extends Component {
   render() {
     const { query } = this.state;
     return (
-      <form className="search-form" onSubmit={this.handleSubmit}>
+      <form className={css.searchForm} onSubmit={this.handleSubmit}>
         <input
           onChange={this.handelChange}
           value={query}

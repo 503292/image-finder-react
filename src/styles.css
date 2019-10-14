@@ -1,5 +1,5 @@
 /* Базовые стили */
-html {
+/* html {
   box-sizing: border-box;
 }
 
@@ -25,26 +25,25 @@ img {
 }
 
 .topImage {
-  margin: 0 auto;
   padding: 20px 0;
-}
+} */
 
 /* Стили компонента App */
-.app {
+/* .app {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 24px;
-}
+} */
 
 /* Стили компонента SearchForm */
-.search-form {
+/* .search-form {
   width: 100%;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-}
+} */
 
-.search-form input {
+/* .search-form input {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
   border: #f0fff0;
   display: block;
@@ -54,10 +53,10 @@ img {
   font-size: 16px;
   border-radius: 2px;
   outline: none;
-}
+} */
 
 /* Стили компонента Gallery */
-.gallery {
+/* .gallery {
   display: grid;
   max-width: 1440px;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -65,28 +64,28 @@ img {
   margin-left: auto;
   margin-right: auto;
   padding: 0;
-}
+} */
 
 /* Стили компонента GalleryItem */
-.photo-card {
+/* .photo-card {
   position: relative;
   overflow: hidden;
   border-radius: 2px;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
-}
+} */
 
-.card-photo {
+/* .photo {
   height: 260px;
   width: 100%;
   object-fit: cover;
-}
-.modal-photo {
+} */
+/* .modal-photo {
   width: 100%;
   object-fit: cover;
-}
+} */
 
-.stats {
+/* .stats {
   width: 100%;
   display: flex;
   align-items: center;
@@ -103,9 +102,9 @@ img {
   align-items: center;
   justify-content: center;
   flex-grow: 1;
-}
+} */
 
-.fullscreen-button {
+/* .fullscreen-button {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -132,18 +131,18 @@ img {
 
 .fullscreen-button i {
   font-size: 36px;
-}
-.gallery-item {
+} */
+/* .gallery-item {
   list-style: none;
-}
+} */
 
-.gallery-item:hover .fullscreen-button,
+/* .gallery-item:hover .fullscreen-button,
 .gallery-item:focus .fullscreen-button {
   opacity: 1;
-}
+} */
 
 /* Стили кнопки Load more */
-.wrapBtn {
+/* .wrapBtn {
   text-align: center;
 }
 
@@ -170,9 +169,9 @@ img {
 .buttonLoad:hover,
 .buttonLoad:focus {
   background-color: #1f65d6;
-}
+} */
 
-.overlay {
+/* .overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -192,4 +191,4 @@ img {
   width: 100%;
   min-height: 320px;
   box-shadow: 0px 4px 21px -4px rgba(0, 0, 0, 0.75);
-}
+} */

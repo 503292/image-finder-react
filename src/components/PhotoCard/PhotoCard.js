@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import css from './PhotoCard.module.css';
 
 const PhotoCard = ({
   id,
@@ -11,29 +12,29 @@ const PhotoCard = ({
   downloads,
   handleOpenModal,
 }) => (
-  <li className="gallery-item">
-    <div className="photo-card">
+  <li className={css.galleryItem}>
+    <div className={css.photoCard}>
       <img
-        className="card-photo"
+        className={css.photo}
         src={webformatURL}
         data-src={largeImageURL}
         alt={id}
       />
 
-      <div className="stats">
-        <p className="stats-item">
+      <div className={css.stats}>
+        <p className={css.statsItem}>
           <i className="material-icons">thumb_up</i>
           {likes}
         </p>
-        <p className="stats-item">
+        <p className={css.statsItem}>
           <i className="material-icons">visibility</i>
           {views}
         </p>
-        <p className="stats-item">
+        <p className={css.statsItem}>
           <i className="material-icons">comment</i>
           {comments}
         </p>
-        <p className="stats-item">
+        <p className={css.statsItem}>
           <i className="material-icons">cloud_download</i>
           {downloads}
         </p>
@@ -42,7 +43,7 @@ const PhotoCard = ({
       <button
         type="button"
         onClick={handleOpenModal}
-        className="fullscreen-button"
+        className={css.fullscreenButton}
       >
         <i className="material-icons">zoom_out_map</i>
       </button>

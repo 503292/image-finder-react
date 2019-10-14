@@ -1,5 +1,6 @@
 import React, { Component, createRef } from 'react';
 import PropTypes from 'prop-types';
+import css from './Modal.module.css';
 
 class Modal extends Component {
   overlayRef = createRef();
@@ -36,13 +37,13 @@ class Modal extends Component {
         <div
           onKeyUp={this.handleBtnModal}
           onClick={this.handleModalOverlay}
-          className="overlay"
+          className={css.overlay}
           role="presentation"
           ref={this.overlayRef}
         >
-          <div className="modal">
+          <div className={css.modal}>
             <img
-              className="modal-photo"
+              className={css.modalPhoto}
               src={largeImageURL}
               alt={largeImageURL}
             />
