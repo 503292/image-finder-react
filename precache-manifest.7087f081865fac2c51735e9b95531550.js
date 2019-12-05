@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "45ad80ab3764cbe612c7a282c61306d2",
+    "revision": "47f93c992f2d522c1c3aa6d7b479bffc",
     "url": "/goit-react-hw-03-image-finder/index.html"
   },
   {
