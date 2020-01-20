@@ -1,4 +1,4 @@
-Moogle GO GO GO https://503292.github.io/goit-react-hw-03-image-finder/
+Moogle GO GO GO https://503292.github.io/image-finder-react/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
