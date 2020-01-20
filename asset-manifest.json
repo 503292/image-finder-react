@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/react-image-finder/static/css/main.b28a9ff4.chunk.css",
-    "main.js": "/react-image-finder/static/js/main.26168465.chunk.js",
-    "main.js.map": "/react-image-finder/static/js/main.26168465.chunk.js.map",
-    "runtime-main.js": "/react-image-finder/static/js/runtime-main.2891a081.js",
-    "runtime-main.js.map": "/react-image-finder/static/js/runtime-main.2891a081.js.map",
-    "static/js/2.0ae14fb6.chunk.js": "/react-image-finder/static/js/2.0ae14fb6.chunk.js",
-    "static/js/2.0ae14fb6.chunk.js.map": "/react-image-finder/static/js/2.0ae14fb6.chunk.js.map",
-    "index.html": "/react-image-finder/index.html",
-    "precache-manifest.b4a2de743e2722e5e69e5ba5ebed8ddc.js": "/react-image-finder/precache-manifest.b4a2de743e2722e5e69e5ba5ebed8ddc.js",
-    "service-worker.js": "/react-image-finder/service-worker.js",
-    "static/css/main.b28a9ff4.chunk.css.map": "/react-image-finder/static/css/main.b28a9ff4.chunk.css.map",
-    "static/media/Moogle.jpg": "/react-image-finder/static/media/Moogle.0210d676.jpg"
+    "main.css": "/image-finder-react/static/css/main.b28a9ff4.chunk.css",
+    "main.js": "/image-finder-react/static/js/main.af9217fd.chunk.js",
+    "main.js.map": "/image-finder-react/static/js/main.af9217fd.chunk.js.map",
+    "runtime-main.js": "/image-finder-react/static/js/runtime-main.be8fa8f5.js",
+    "runtime-main.js.map": "/image-finder-react/static/js/runtime-main.be8fa8f5.js.map",
+    "static/js/2.0ae14fb6.chunk.js": "/image-finder-react/static/js/2.0ae14fb6.chunk.js",
+    "static/js/2.0ae14fb6.chunk.js.map": "/image-finder-react/static/js/2.0ae14fb6.chunk.js.map",
+    "index.html": "/image-finder-react/index.html",
+    "precache-manifest.0507d0b66d496ed11e0fc382ba0a53c6.js": "/image-finder-react/precache-manifest.0507d0b66d496ed11e0fc382ba0a53c6.js",
+    "service-worker.js": "/image-finder-react/service-worker.js",
+    "static/css/main.b28a9ff4.chunk.css.map": "/image-finder-react/static/css/main.b28a9ff4.chunk.css.map",
+    "static/media/Moogle.jpg": "/image-finder-react/static/media/Moogle.0210d676.jpg"
   }
 }
